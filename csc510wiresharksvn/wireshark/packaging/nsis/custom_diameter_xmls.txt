@@ -1,0 +1,4 @@
+; $Id: custom_diameter_xmls.txt 52884 2013-10-27 01:11:15Z morriss $
+;Add your custom diameter dictionary here
+; Example:
+;File "..\..\diameter\foo.xml"

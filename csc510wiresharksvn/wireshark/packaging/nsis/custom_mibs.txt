@@ -1,0 +1,5 @@
+; $Id: custom_mibs.txt 52884 2013-10-27 01:11:15Z morriss $
+; Add your custom SNMP MIBS directives here
+; Example:
+; Point to the dir of the MIBS
+;File "mymibdirpath\mibs\*"

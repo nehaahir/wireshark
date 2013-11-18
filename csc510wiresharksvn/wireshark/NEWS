@@ -1,0 +1,173 @@
+
+                         Wireshark 1.11.1 Release Notes
+     __________________________________________________________________
+
+What is Wireshark?
+
+   Wireshark is the world's most popular network protocol analyzer. It is
+   used for troubleshooting, analysis, development and education.
+     __________________________________________________________________
+
+What's New
+
+  Bug Fixes
+
+   The following bugs have been fixed:
+     * "On-the-wire" packet lengths are limited to 65535 bytes. ([1]Bug
+       8808, ws-buglink:9390)
+     * "Follow TCP Stream" shows only the first HTTP req+res. ([2]Bug
+       9044)
+     * Files with pcap-ng Simple Packet Blocks can't be read. ([3]Bug
+       9200)
+
+  New and Updated Features
+
+   The following features are new (or have been significantly updated)
+   since version 1.11.0:
+     * Qt port:
+          + The Follow Stream dialog now supports packet and TCP stream
+            selection.
+          + A Flow Graph (sequence diagram) dialog has been added.
+          + The main window now respects geometry preferences.
+
+   The following features are new (or have been significantly updated)
+   since version 1.10:
+     * Wireshark now uses the Qt application framework. The new UI should
+       provide a significantly better user experience, particularly on Mac
+       OS X and Windows.
+     * A more flexible, modular memory manger (wmem) has been added. It
+       was available experimentally in 1.10 but is now mature and has
+       mostly replaced the old API.
+     * Expert info is now filterable and now requires a new API.
+     * The Windows installer now uninstalls the previous version of
+       Wireshark silently. You can still run the uninstaller manually
+       beforehand if you wish to run it interactively.
+     * The "Number" column shows related packets and protocol conversation
+       spans (Qt only).
+     * When manipulating packets with editcap using the -C <choplen>
+       and/or -s <snaplen> options, it is now possible to also adjust the
+       original frame length using the -L option.
+     * You can now pass the -C <choplen> option to editcap multiple times,
+       which allows you to chop bytes from the beginning of a packet as
+       well as at the end of a packet in a single step.
+     * You can now specify an optional offset to the -C option for
+       editcap, which allows you to start chopping from that offset
+       instead of from the absolute packet beginning or end.
+     * "malformed" display filter has been renamed to "_ws.malformed". A
+       handful of other filters have been given the "_ws." prefix to note
+       they are Wireshark application specific filters and not dissector
+       filters.
+
+  New Protocol Support
+
+   802.1AE Secure tag, ASTERIX, ATN, BT 3DS, CARP, Cisco MetaData, ELF
+   file format, EXPORTED PDU, FINGER, HTTP2, IDRP, ILP, Kafka, MBIM, MiNT,
+   MP4/ISOBMFF file format, NXP PN532 HCI, OpenFlow, Picture Transfer Protocol
+   Over IP, QUIC (Quick UDP Internet Connections), SEL RTAC (Real Time
+   Automation Controller) EIA-232 Serial-Line Dissection, Sippy RTPproxy,
+   STANAG 4607, STANAG 5066 SIS, Tinkerforge, UDT, URL Encoded Form Data,
+   WHOIS, and Wi-Fi Display
+
+  Updated Protocol Support
+
+   Too many protocols have been updated to list here.
+
+  New and Updated Capture File Support
+
+   Netscaler 2.6, and STANAG 4607
+     __________________________________________________________________
+
+Getting Wireshark
+
+   Wireshark source code and installation packages are available from
+   [4]http://www.wireshark.org/download.html.
+
+  Vendor-supplied Packages
+
+   Most Linux and Unix vendors supply their own Wireshark packages. You
+   can usually install or upgrade Wireshark using the package management
+   system specific to that platform. A list of third-party packages can be
+   found on the [5]download page on the Wireshark web site.
+     __________________________________________________________________
+
+File Locations
+
+   Wireshark and TShark look in several different locations for preference
+   files, plugins, SNMP MIBS, and RADIUS dictionaries. These locations
+   vary from platform to platform. You can use About->Folders to find the
+   default locations on your system.
+     __________________________________________________________________
+
+Known Problems
+
+   Dumpcap might not quit if Wireshark or TShark crashes. ([6]Bug 1419)
+
+   The BER dissector might infinitely loop. ([7]Bug 1516)
+
+   Capture filters aren't applied when capturing from named pipes.
+   (ws-buglink:1814)
+
+   Filtering tshark captures with read filters (-R) no longer works.
+   ([8]Bug 2234)
+
+   The 64-bit Windows installer does not support Kerberos decryption.
+   ([9]Win64 development page)
+
+   Resolving ([10]Bug 9044) reopens ([11]Bug 3528) so that Wireshark no
+   longer automatically decodes gzip data when following a TCP stream.
+
+   Application crash when changing real-time option. ([12]Bug 4035)
+
+   Hex pane display issue after startup. ([13]Bug 4056)
+
+   Packet list rows are oversized. ([14]Bug 4357)
+
+   Summary pane selected frame highlighting not maintained. ([15]Bug 4445)
+
+   Wireshark and TShark will display incorrect delta times in some cases.
+   ([16]Bug 4985)
+
+   The 64-bit Mac OS X installer doesn't support Mac OS X 10.9 ([17]Bug
+   9242)
+     __________________________________________________________________
+
+Getting Help
+
+   Community support is available on [18]Wireshark's Q&A site and on the
+   wireshark-users mailing list. Subscription information and archives for
+   all of Wireshark's mailing lists can be found on [19]the web site.
+
+   Official Wireshark training and certification are available from
+   [20]Wireshark University.
+     __________________________________________________________________
+
+Frequently Asked Questions
+
+   A complete FAQ is available on the [21]Wireshark web site.
+     __________________________________________________________________
+
+   Last updated 2013-11-15 00:54:41 CET
+
+References
+
+   1. https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=8808
+   2. https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=9044
+   3. https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=9200
+   4. http://www.wireshark.org/download.html
+   5. http://www.wireshark.org/download.html#thirdparty
+   6. https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=1419
+   7. https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=1516
+   8. https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=2234
+   9. https://wiki.wireshark.org/Development/Win64
+  10. https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=9044
+  11. https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=3528
+  12. https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=4035
+  13. https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=4056
+  14. https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=4357
+  15. https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=4445
+  16. https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=4985
+  17. https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=9242
+  18. http://ask.wireshark.org/
+  19. http://www.wireshark.org/lists/
+  20. http://www.wiresharktraining.com/
+  21. http://www.wireshark.org/faq.html
